@@ -1,11 +1,35 @@
 {
-  "version": "start",
+  "version": "f9e912fb-1b17-4044-a8b6-607bdd9f89c0",
   "photosEnabled": true,
   "fields": [
-    { "key": "beskjed", "label": "Beskjed øverst på siden", "hint": "La stå tom for å skjule den.", "max": 120, "value": "" },
-    { "key": "apningstider", "label": "Åpningstider", "multiline": true, "max": 200, "value": "Mandag til fredag 7 til 15" },
-    { "key": "omoss", "label": "Om oss", "multiline": true, "max": 600, "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden." },
-    { "key": "telefon", "label": "Telefon", "max": 20, "value": "000 00 000" }
+    {
+      "key": "beskjed",
+      "label": "Beskjed øverst på siden",
+      "hint": "La stå tom for å skjule den.",
+      "max": 120,
+      "value": "Test fra Rediger siden 00:05:46"
+    },
+    {
+      "key": "apningstider",
+      "label": "Åpningstider",
+      "multiline": true,
+      "max": 200,
+      "value": "Mandag til fredag 7 til 15"
+    },
+    {
+      "key": "omoss",
+      "label": "Om oss",
+      "multiline": true,
+      "max": 600,
+      "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden."
+    },
+    {
+      "key": "telefon",
+      "label": "Telefon",
+      "max": 20,
+      "value": "000 00 000"
+    }
   ],
-  "photos": []
+  "photos": [],
+  "updated": "2026-11-05T23:05:47.340Z"
 }

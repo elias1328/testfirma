@@ -9,6 +9,9 @@
         if (f.value) { el.textContent = f.value; el.style.whiteSpace = "pre-line"; el.hidden = false; }
         else if (el.hasAttribute("data-skjul-tom")) el.hidden = true;
       });
+      // phone links follow the phone field: <a data-tel="telefon" href="tel:...">
+      if (f.value) document.querySelectorAll('[data-tel="' + f.key + '"]').forEach(function (a) { a.href = "tel:" + f.value.replace(/[^\d+]/g, ""); });
+      document.querySelectorAll('[data-skjul-hvis-tom="' + f.key + '"]').forEach(function (box) { box.hidden = !f.value; });
     });
     document.querySelectorAll("[data-bilder]").forEach(function (box) {
       var photos = (c.photos || []).filter(function (p) {

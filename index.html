@@ -1,36 +1,439 @@
-<!DOCTYPE html>
-<html lang="nb">
+<!doctype html>
+<html lang="no">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Testfirma (test av Rediger siden)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brumunddal Blikk AS | blikkenslager i Brumunddal</title>
+<meta name="description" content="Brumunddal Blikk AS er blikkenslager i Brumunddal. Jemtlandsvegen 8, i bygget til Multi Bygg. Ring 913 79 028 eller be om et uforpliktende tilbud.">
+<!-- Preview only: keep out of search engines until the owner says yes -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2b3036">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@100..125,500..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; font:17px/1.5 system-ui,sans-serif; color:#222; background:#fafaf7; }
-  main { max-width:720px; margin:0 auto; padding:24px 16px; }
-  .beskjed { background:#1f5f8b; color:#fff; padding:10px 16px; text-align:center; }
-  h1 { margin:0 0 4px; } h2 { margin-top:32px; }
-  .bilder { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; }
-  .bilder figure { margin:0; } .bilder img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; display:block; }
-  .bilder figcaption { font-size:14px; color:#666; margin-top:4px; }
+:root{
+  --zinc-9:#1f2327;--zinc-8:#2b3036;--zinc-7:#3a4047;--zinc-5:#6c747d;--zinc-3:#b9c0c7;--zinc-2:#d8dde2;--zinc-1:#eceff2;--zinc-0:#f6f7f8;
+  --copper:#b8693a;--copper-d:#8f4c25;--copper-l:#e3a57a;--ink:#1d2125;--muted:#59626b;--gold:#d8b25a
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Schibsted Grotesk",system-ui,sans-serif;background:var(--zinc-0);color:var(--ink);line-height:1.6;font-size:1.06rem;overflow-x:hidden}
+h1,h2,h3{font-family:"Saira",system-ui,sans-serif;font-stretch:112.5%;font-weight:650;line-height:1.08;letter-spacing:0}
+a{color:inherit}
+svg{display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.preview{background:var(--gold);color:#1f1a0e;text-align:center;font-size:.8rem;font-weight:600;padding:6px 12px}
+.eyebrow{display:inline-block;font-family:"Saira",sans-serif;font-stretch:112.5%;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--copper-d)}
+
+/* Brushed steel and standing seams */
+.steel{background:
+  repeating-linear-gradient(90deg,#ffffff06 0 1px,#0000 1px 3px),
+  repeating-linear-gradient(90deg,#0000 0 58px,#ffffff14 58px 60px,#00000040 60px 62px,#0000 62px 120px),
+  linear-gradient(180deg,#353b42,#24282d)}
+
+/* Hero */
+.hero{position:relative;color:#fff;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.mark{display:flex;align-items:center;gap:10px;font-family:"Saira",sans-serif;font-stretch:112.5%;font-weight:700;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none}
+.mark svg{width:34px;height:26px;color:var(--copper-l)}
+.top nav{display:flex;gap:20px;font-size:.9rem;font-weight:600}
+.top nav a{text-decoration:none;color:var(--zinc-2)}
+.top nav a:hover{color:var(--copper-l)}
+.hero-in{position:relative;z-index:2;padding:46px 0 60px;max-width:640px}
+.hero .eyebrow{color:var(--copper-l)}
+.hero h1{font-size:clamp(2.6rem,11vw,5.2rem);text-transform:uppercase;margin:10px 0 0;line-height:1.02;letter-spacing:-.005em}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1.5px var(--zinc-3)}
+.lead{font-size:1.15rem;color:var(--zinc-2);margin-top:18px;max-width:520px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:4px;font-weight:700;font-size:1.05rem;text-decoration:none;border:2px solid var(--zinc-3);color:#fff;transition:background .2s,border-color .2s}
+.btn:hover{border-color:#fff;background:#ffffff14}
+.btn.cu{background:var(--copper);border-color:var(--copper);color:#fff}
+.btn.cu:hover{background:var(--copper-d);border-color:var(--copper-d)}
+.roof{position:absolute;right:-40px;bottom:0;width:min(560px,60%);z-index:1;color:var(--zinc-5);opacity:.9}
+.eave{height:12px;background:linear-gradient(180deg,var(--copper-l),var(--copper) 45%,var(--copper-d));position:relative;z-index:2}
+
+/* Kapasitet */
+.kap{background:var(--zinc-9);color:#fff}
+.kap-in{display:flex;align-items:center;gap:8px 14px;padding:16px;flex-wrap:wrap}
+.kap .lamp{width:12px;height:12px;border-radius:50%;background:var(--copper-l);box-shadow:0 0 0 5px #e3a57a30;flex:none}
+.kap .lbl{font-family:"Saira",sans-serif;font-stretch:112.5%;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--zinc-3);font-weight:600}
+.kap .txt{font-weight:600;font-size:1.08rem;flex:1;min-width:220px}
+.kap .msg{display:none;width:100%;color:var(--copper-l);font-size:.95rem;padding-left:26px}
+.kap .msg.show{display:block}
+
+/* Sections */
+section{padding:72px 0}
+.head{margin-bottom:30px;max-width:620px}
+.head h2{font-size:clamp(1.9rem,5.4vw,2.7rem);text-transform:uppercase;margin:6px 0 10px}
+.head p{color:var(--muted)}
+
+.jobs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.job{background:#fff;border:1px solid var(--zinc-2);border-radius:6px;padding:24px 22px 22px;position:relative;overflow:hidden}
+.job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:repeating-linear-gradient(180deg,var(--copper) 0 18px,var(--copper-d) 18px 20px)}
+.job svg{width:46px;height:46px;color:var(--zinc-7);margin-bottom:12px}
+.job h3{font-size:1.28rem;text-transform:uppercase}
+.job p{color:var(--muted);margin-top:4px}
+.note{margin-top:20px;color:var(--muted);font-size:.98rem}
+
+/* Steps */
+.steps-sec{background:var(--zinc-1);border-top:1px solid var(--zinc-2);border-bottom:1px solid var(--zinc-2)}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.steps li{counter-increment:s;background:#fff;border-radius:6px;padding:24px 22px;border-top:4px solid var(--zinc-7)}
+.steps li::before{content:"0" counter(s);font-family:"Saira",sans-serif;font-stretch:112.5%;font-weight:700;font-size:2.3rem;line-height:1;color:var(--copper)}
+.steps h3{font-size:1.25rem;text-transform:uppercase;margin:10px 0 4px}
+.steps p{color:var(--muted)}
+
+/* Photo placeholders */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{aspect-ratio:3/4;border-radius:6px;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:.88rem;font-weight:600;position:relative;overflow:hidden}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 50%,#0007)}
+.tile span{position:relative;z-index:1}
+.t1{background:repeating-linear-gradient(90deg,#4a5159 0 34px,#6a737c 34px 37px,#2e3338 37px 39px,#4a5159 39px 72px)}
+.t2{background:repeating-linear-gradient(90deg,#a85f33 0 30px,#d08a5c 30px 33px,#7d4220 33px 35px,#a85f33 35px 64px)}
+.t3{background:radial-gradient(circle at 70% 30%,#8e98a2,#3a4047 70%)}
+.t4{background:repeating-linear-gradient(135deg,#2e3338 0 22px,#3a4047 22px 44px)}
+.tiles-note{margin-top:16px;color:var(--muted)}
+
+/* Om oss */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.about p+p{margin-top:12px}
+.about .plate{border-radius:6px;padding:28px;color:#fff}
+.plate dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px}
+.plate dt{font-family:"Saira",sans-serif;font-stretch:112.5%;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;color:var(--zinc-3);padding-top:4px}
+.plate dd{font-weight:600}
+.plate a{color:#fff}
+
+/* Form */
+.form-sec{background:var(--zinc-8);color:#fff}
+.form-sec .eyebrow{color:var(--copper-l)}
+.form-sec .head p{color:var(--zinc-3)}
+form{background:#fff;color:var(--ink);border-radius:8px;padding:26px 22px;max-width:720px;display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;border-top:6px solid var(--copper)}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-weight:700;font-size:.95rem}
+label small{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1.05rem;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--zinc-3);border-radius:4px;background:var(--zinc-0);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid #b8693a55;border-color:var(--copper)}
+button.send{grid-column:1/-1;font:inherit;font-weight:700;font-size:1.12rem;min-height:58px;border:0;border-radius:4px;background:var(--copper);color:#fff;cursor:pointer}
+button.send:hover{background:var(--copper-d)}
+.done{display:none;grid-column:1/-1;background:#fbf1e9;border:1.5px solid var(--copper);border-radius:6px;padding:16px 18px;font-weight:600}
+.done.show{display:block}
+
+/* Kontakt */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.c-card{background:#fff;border:1px solid var(--zinc-2);border-radius:6px;padding:26px 24px}
+.c-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:10px}
+.c-card p+p{margin-top:10px}
+.c-card .big{font-family:"Saira",sans-serif;font-stretch:112.5%;font-weight:700;font-size:2.1rem;line-height:1;text-decoration:none;color:var(--ink)}
+.c-card .actions{margin-top:18px}
+.c-card .btn{color:var(--ink);border-color:var(--zinc-7)}
+.c-card .btn.cu{color:#fff;border-color:var(--copper)}
+.c-card .btn:hover{background:var(--zinc-1)}
+.c-card .btn.cu:hover{background:var(--copper-d)}
+
+footer{color:var(--zinc-3);padding:30px 0;font-size:.88rem;text-align:center}
+footer b{color:#fff}
+
+.mobilebar{display:none}
+@media (max-width:820px){
+  .steps{grid-template-columns:1fr}
+  .tiles{grid-template-columns:1fr 1fr}
+  .about,.contact-grid{grid-template-columns:1fr}
+  .roof{width:90%;right:-30%;opacity:.35}
+}
+@media (max-width:600px){
+  .top nav{display:none}
+  .jobs{grid-template-columns:1fr}
+  form{grid-template-columns:1fr;padding:22px 16px}
+  .actions .btn{flex:1 1 100%}
+  .hero-in{padding:30px 0 46px}
+  .mobilebar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:10}
+  .mobilebar a{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:4px;font-weight:700;text-decoration:none;box-shadow:0 8px 22px #0006}
+  .mobilebar .a{background:var(--copper);color:#fff}
+  .mobilebar .b{background:var(--zinc-9);color:#fff;border:1px solid var(--zinc-5)}
+  footer{padding-bottom:100px}
+}
+  .tiles figure{margin:0}.tiles img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:6px}.tiles figcaption{font-size:14px;margin-top:6px;opacity:.8}
 </style>
 </head>
 <body>
-<div class="beskjed" data-felt="beskjed" data-skjul-tom hidden></div>
+<div class="preview">Forhåndsvisning laget for Brumunddal Blikk AS</div>
+
+<header class="hero steel">
+  <div class="wrap">
+    <div class="top">
+      <a class="mark" href="#">
+        <svg viewBox="0 0 34 26" aria-hidden="true"><path d="M2 24 17 3l15 21" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M11 24V14M17 24V9M23 24V14" stroke="currentColor" stroke-width="2"/></svg>
+        Brumunddal Blikk
+      </a>
+      <nav aria-label="Hovedmeny">
+        <a href="#oppdrag">Oppdrag</a><a href="#tilbud">Tilbud</a><a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+    <div class="hero-in">
+      <span class="eyebrow">Blikkenslager i Brumunddal</span>
+      <h1>Brumunddal <span>Blikk</span></h1>
+      <p class="lead">Du finner oss i Jemtlandsvegen 8, i bygget til Multi Bygg. Ring, eller fortell oss om jobben her på siden.</p>
+      <div class="actions">
+        <a class="btn cu" href="#tilbud">Få tilbud</a>
+        <a class="btn" href="tel:+4791379028">Ring 913 79 028</a>
+      </div>
+    </div>
+  </div>
+  <!-- Standing-seam roof drawn in SVG -->
+  <svg class="roof" viewBox="0 0 560 300" aria-hidden="true">
+    <defs>
+      <clipPath id="roofclip"><path d="M0 300 280 40 560 300Z"/></clipPath>
+      <linearGradient id="sheet" x1="0" x2="1"><stop offset="0" stop-color="#5b636c"/><stop offset=".5" stop-color="#7c858e"/><stop offset="1" stop-color="#4a5159"/></linearGradient>
+    </defs>
+    <g clip-path="url(#roofclip)">
+      <rect width="560" height="300" fill="url(#sheet)"/>
+      <g stroke="#9aa3ac" stroke-width="3">
+        <path d="M40 0v300M80 0v300M120 0v300M160 0v300M200 0v300M240 0v300M280 0v300M320 0v300M360 0v300M400 0v300M440 0v300M480 0v300M520 0v300"/>
+      </g>
+      <g stroke="#2e3338" stroke-width="1.5">
+        <path d="M43 0v300M83 0v300M123 0v300M163 0v300M203 0v300M243 0v300M283 0v300M323 0v300M363 0v300M403 0v300M443 0v300M483 0v300M523 0v300"/>
+      </g>
+    </g>
+    <path d="M-6 304 280 36 566 304" fill="none" stroke="#b8693a" stroke-width="8" stroke-linejoin="miter"/>
+    <rect x="360" y="70" width="44" height="120" fill="#3a4047"/>
+    <rect x="352" y="58" width="60" height="14" fill="#b8693a"/>
+    <path d="M356 58 382 40 408 58" fill="#8f4c25"/>
+  </svg>
+</header>
+<div class="eave" aria-hidden="true"></div>
+
+<div class="kap" aria-live="polite">
+  <div class="wrap kap-in">
+    <span class="lamp" aria-hidden="true"></span>
+    <span class="lbl">Kapasitet</span>
+    <span class="txt" id="kap-txt" data-felt="kapasitet">Ta kontakt for ledig kapasitet og pris.</span>
+    <span class="msg" id="kap-msg"></span>
+  </div>
+</div>
+
 <main>
-  <h1>Testfirma</h1>
-  <p>Et oppdiktet firma for å teste redigeringssiden.</p>
-  <h2>Om oss</h2>
-  <p data-felt="omoss">Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden.</p>
-  <h2>Åpningstider</h2>
-  <p data-felt="apningstider">Mandag til fredag 7 til 15</p>
-  <h2>Telefon</h2>
-  <p data-felt="telefon">000 00 000</p>
-  <section data-bilder-seksjon hidden>
-    <h2>Siste jobber</h2>
-    <div class="bilder" data-bilder></div>
-  </section>
+<section id="oppdrag">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Hva vi gjør</span>
+      <h2>Typiske oppdrag</h2>
+      <p>Dette er vanlige jobber for en blikkenslager.</p>
+    </div>
+    <div class="jobs">
+      <article class="job">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 40 24 10l20 30" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M15 40V24M20 40V17M28 40V17M33 40V24" stroke="currentColor" stroke-width="2"/></svg>
+        <h3>Taktekking</h3>
+        <p>Tak med stål og plater.</p>
+      </article>
+      <article class="job">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="17" y="12" width="14" height="30" fill="none" stroke="currentColor" stroke-width="3"/><path d="M4 40 17 28M44 40 31 28M12 34h6M30 34h6" stroke="currentColor" stroke-width="3"/></svg>
+        <h3>Beslag og pipebeslag</h3>
+        <p>Beslag rundt pipe, vinduer og møner.</p>
+      </article>
+      <article class="job">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 12h32a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M30 20v22M36 42h-12" stroke="currentColor" stroke-width="3"/></svg>
+        <h3>Takrenner og nedløp</h3>
+        <p>Nye renner og nedløp, eller bytte av gamle.</p>
+      </article>
+      <article class="job">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18 24 6l16 12Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M16 18v6h16v-6M18 24v18h12V24" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        <h3>Piperehatter og inndekninger</h3>
+        <p>Hatter på pipa og tette overganger på taket.</p>
+      </article>
+    </div>
+    <p class="note">Står ikke jobben din her? Ring og spør, så finner vi ut av det.</p>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Slik jobber vi</span>
+      <h2>Tre enkle steg</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Du tar kontakt</h3><p>Ring eller send en forespørsel her på siden. Fortell kort hva det gjelder.</p></li>
+      <li><h3>Vi kommer på befaring</h3><p>Vi ser på taket eller jobben der den er, og avtaler hva som skal gjøres.</p></li>
+      <li><h3>Du får et fast tilbud</h3><p>Du får et fast tilbud og bestemmer selv om du vil gå videre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="bilder" data-bilder-seksjon hidden>
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Bilder av jobbene</span>
+      <h2>Fra jobbene våre</h2>
+    </div>
+    <div class="tiles" data-bilder></div>
+  </div>
+</section>
+
+<section class="form-sec" id="tilbud">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Få et uforpliktende tilbud</span>
+      <h2>Fortell oss om jobben</h2>
+      <p>Fyll ut det du vet, så tar vi kontakt.</p>
+    </div>
+    <form id="form" novalidate>
+      <div class="f full">
+        <label for="hva">Hva gjelder det</label>
+        <select id="hva" name="hva">
+          <option>Taktekking med stål og plater</option>
+          <option>Beslag og pipebeslag</option>
+          <option>Takrenner og nedløp</option>
+          <option>Piperehatter og inndekninger</option>
+          <option>Annet</option>
+        </select>
+      </div>
+      <div class="f full">
+        <label for="besk">Beskrivelse</label>
+        <textarea id="besk" name="beskrivelse" placeholder="For eksempel: lekker rundt pipa, vil bytte takrenner på garasjen"></textarea>
+      </div>
+      <div class="f">
+        <label for="sted">Adresse eller sted</label>
+        <input id="sted" name="sted" autocomplete="street-address">
+      </div>
+      <div class="f">
+        <label for="naar">Når passer det</label>
+        <select id="naar" name="naar">
+          <option>Så fort som mulig</option>
+          <option>I løpet av måneden</option>
+          <option>Senere</option>
+          <option>Vet ikke</option>
+        </select>
+      </div>
+      <div class="f">
+        <label for="navn">Navn</label>
+        <input id="navn" name="navn" autocomplete="name">
+      </div>
+      <div class="f">
+        <label for="tlf">Telefon</label>
+        <input id="tlf" name="telefon" type="tel" inputmode="tel" autocomplete="tel">
+      </div>
+      <div class="f full">
+        <label for="epost">E-post <small>(valgfritt)</small></label>
+        <input id="epost" name="epost" type="email" autocomplete="email">
+      </div>
+      <button class="send" type="submit">Send forespørsel</button>
+      <div class="done" id="done" role="status">Dette er en forhåndsvisning. Når siden er satt opp, kommer forespørselen rett i innboksen deres.</div>
+    </form>
+  </div>
+</section>
+
+<section id="om">
+  <div class="wrap about">
+    <div>
+      <span class="eyebrow">Om oss</span>
+      <div class="head" style="margin-bottom:14px"><h2>Blikkenslager i Brumunddal</h2></div>
+      <p data-felt="omoss">Brumunddal Blikk AS holder til i Jemtlandsvegen 8 i Brumunddal, i samme bygg som Multi Bygg.
+
+Lurer du på noe, er det bare å ringe.</p>
+    </div>
+    <div class="plate steel">
+      <dl>
+        <dt>Firma</dt><dd>Brumunddal Blikk AS</dd>
+        <dt>Fag</dt><dd>Blikkenslager</dd>
+        <dt>Kontakt</dt><dd>Paul Myhre</dd>
+        <dt>Telefon</dt><dd><a href="tel:+4791379028">913 79 028</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Ring eller kom innom</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="c-card">
+        <h3>Telefon</h3>
+        <a class="big" href="tel:+4791379028" data-felt="telefon" data-tel="telefon">913 79 028</a>
+        <p style="margin-top:10px">Kontakt: Paul Myhre</p>
+        <div class="actions"><a class="btn cu" href="tel:+4791379028" data-tel="telefon">Ring nå</a><a class="btn" href="#tilbud">Få tilbud</a></div>
+      </div>
+      <div class="c-card">
+        <h3>Adresse</h3>
+        <p data-felt="adresse" style="white-space:pre-line">Jemtlandsvegen 8
+2383 Brumunddal</p>
+        <p>I bygget til Multi Bygg</p>
+        <div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Brumunddal+Blikk+AS%2C+Jemtlandsvegen+8%2C+2383+Brumunddal">Åpne i Google Maps</a></div>
+      </div>
+      <div class="c-card" data-skjul-hvis-tom="apningstider" hidden>
+        <h3>Åpningstider</h3>
+        <p data-felt="apningstider" style="white-space:pre-line"></p>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
+
+<footer class="steel">
+  <b>Brumunddal Blikk AS</b><br>Org.nr. 964 218 218<br>Jemtlandsvegen 8, 2383 Brumunddal
+</footer>
+
+<div class="mobilebar">
+  <a class="a" href="#tilbud">Få tilbud</a>
+  <a class="b" href="tel:+4791379028">Ring</a>
+</div>
+
+<script>
+// The owner writes capacity in a Google Sheet (columns: Felt, Tekst).
+// Rows: "Kapasitet" (e.g. "Vi har ledig kapasitet fra uke 46"), "Beskjed" (optional, hidden if empty).
+// Paste the sheet's "Publiser på nettet" CSV link here. Empty = fallback text.
+const SHEET_CSV = ""; /* test copy: content comes from content.json */
+const FALLBACK = "Ta kontakt for ledig kapasitet og pris.";
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// Minimal CSV parser (handles quoted fields with commas).
+function parseCsv(text) {
+  const rows = []; let row = [], field = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"' && text[i + 1] === '"') { field += '"'; i++; } else if (c === '"') q = false; else field += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(field); rows.push(row); row = []; field = ""; }
+    else field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+function renderKap(d) {
+  document.getElementById("kap-txt").innerHTML = esc(d["kapasitet"] || FALLBACK);
+  const m = document.getElementById("kap-msg"), msg = (d["beskjed"] || "").trim();
+  m.innerHTML = esc(msg);
+  m.classList.toggle("show", !!msg);
+}
+
+renderKap({});
+if (SHEET_CSV) {
+  fetch(SHEET_CSV + "&t=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.text() : Promise.reject(r.status)).then(text => {
+    const d = {};
+    for (const [felt = "", tekst = ""] of parseCsv(text).slice(1)) {
+      const k = felt.trim().toLowerCase();
+      if (k) d[k] = tekst.trim();
+    }
+    renderKap(d);
+  }).catch(() => renderKap({}));
+}
+
+// Preview: the form does not send anything yet.
+document.getElementById("form").addEventListener("submit", e => {
+  e.preventDefault();
+  const done = document.getElementById("done");
+  done.classList.add("show");
+  done.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+</script>
 <script src="rediger.js"></script>
 </body>
 </html>

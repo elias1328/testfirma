@@ -1,41 +1,49 @@
 {
-  "version": "bce07dae-e705-4431-9798-654d21241732",
+  "version": "start",
+  "api": "https://script.google.com/macros/s/AKfycbwhVmALCIbyV100ZHIC3BxG8XwM2Y9YWrb8S4jCeChfwrQNEkHRVSKiP3Y8URe4eGCgSQ/exec",
   "photosEnabled": true,
-  "fields": [
-    {
-      "key": "beskjed",
-      "label": "Beskjed øverst på siden",
-      "hint": "La stå tom for å skjule den.",
-      "max": 120,
-      "value": "Heii på deg dette er øverst på siden"
-    },
-    {
-      "key": "apningstider",
-      "label": "Åpningstider",
-      "multiline": true,
-      "max": 200,
-      "value": "Mandag til fredag 7 til 15 og lørdager til 10:00"
-    },
-    {
-      "key": "omoss",
-      "label": "Om oss",
-      "multiline": true,
-      "max": 600,
-      "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden. Oh yeah enig"
-    },
-    {
-      "key": "telefon",
-      "label": "Telefon",
-      "max": 20,
-      "value": "000 00 000"
-    }
-  ],
   "photos": [
     {
       "src": "bilder/20261106-001820-0.jpg",
       "caption": "Bilde av Muggerud"
     }
   ],
-  "updated": "2026-11-05T23:18:20.619Z",
-  "api": "https://script.google.com/macros/s/AKfycbwhVmALCIbyV100ZHIC3BxG8XwM2Y9YWrb8S4jCeChfwrQNEkHRVSKiP3Y8URe4eGCgSQ/exec"
+  "fields": [
+    {
+      "key": "kapasitet",
+      "label": "Kapasitet",
+      "hint": "Linjen øverst på siden. For eksempel: Ledig kapasitet fra uke 48.",
+      "max": 90,
+      "value": "Ta kontakt for ledig kapasitet og pris."
+    },
+    {
+      "key": "apningstider",
+      "label": "Åpningstider",
+      "hint": "La stå tom for å skjule den.",
+      "multiline": true,
+      "max": 200,
+      "value": ""
+    },
+    {
+      "key": "omoss",
+      "label": "Om oss",
+      "multiline": true,
+      "max": 600,
+      "value": "Brumunddal Blikk AS holder til i Jemtlandsvegen 8 i Brumunddal, i samme bygg som Multi Bygg.\n\nLurer du på noe, er det bare å ringe."
+    },
+    {
+      "key": "adresse",
+      "label": "Adresse",
+      "multiline": true,
+      "max": 100,
+      "value": "Jemtlandsvegen 8\n2383 Brumunddal"
+    },
+    {
+      "key": "telefon",
+      "label": "Telefon",
+      "hint": "Ring-knappene følger med.",
+      "max": 20,
+      "value": "913 79 028"
+    }
+  ]
 }

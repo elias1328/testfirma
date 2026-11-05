@@ -1,0 +1,11 @@
+{
+  "version": "start",
+  "photosEnabled": true,
+  "fields": [
+    { "key": "beskjed", "label": "Beskjed øverst på siden", "hint": "La stå tom for å skjule den.", "max": 120, "value": "" },
+    { "key": "apningstider", "label": "Åpningstider", "multiline": true, "max": 200, "value": "Mandag til fredag 7 til 15" },
+    { "key": "omoss", "label": "Om oss", "multiline": true, "max": 600, "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden." },
+    { "key": "telefon", "label": "Telefon", "max": 20, "value": "000 00 000" }
+  ],
+  "photos": []
+}

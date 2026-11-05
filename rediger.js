@@ -3,7 +3,6 @@
             <div data-bilder></div>   (gallery, optional)
    The text already in the HTML stays if content.json can't be read. */
 (function () {
-  var previewing = false;   // once the edit page sends a preview, the saved version must not overwrite it
   function apply(c) {
     (c.fields || []).forEach(function (f) {
       document.querySelectorAll('[data-felt="' + f.key + '"]').forEach(function (el) {
@@ -29,15 +28,16 @@
     });
   }
 
+  // Edit mode (/rediger/ sends people here): load the editor on top of the page instead
+  if (/[?&]rediger=1/.test(location.search)) {
+    var sc = document.createElement("script");
+    sc.src = "rediger-modus.js?t=" + Date.now();
+    document.head.appendChild(sc);
+    return;
+  }
+
   fetch("content.json?t=" + Date.now(), { cache: "no-store" })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-    .then(function (c) { if (!previewing) apply(c); })
+    .then(apply)
     .catch(function () { /* keep the built-in text */ });
-
-  // Preview from the edit page: only shows on that screen, nothing is saved
-  if (/[?&]forhandsvisning=1/.test(location.search)) {
-    window.addEventListener("message", function (e) {
-      if (e.data && e.data.type === "rediger-preview" && e.data.content) { previewing = true; apply(e.data.content); }
-    });
-  }
 })();

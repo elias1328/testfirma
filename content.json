@@ -1,5 +1,5 @@
 {
-  "version": "f9e912fb-1b17-4044-a8b6-607bdd9f89c0",
+  "version": "bce07dae-e705-4431-9798-654d21241732",
   "photosEnabled": true,
   "fields": [
     {
@@ -7,21 +7,21 @@
       "label": "Beskjed øverst på siden",
       "hint": "La stå tom for å skjule den.",
       "max": 120,
-      "value": "Test fra Rediger siden 00:05:46"
+      "value": "Heii på deg dette er øverst på siden"
     },
     {
       "key": "apningstider",
       "label": "Åpningstider",
       "multiline": true,
       "max": 200,
-      "value": "Mandag til fredag 7 til 15"
+      "value": "Mandag til fredag 7 til 15 og lørdager til 10:00"
     },
     {
       "key": "omoss",
       "label": "Om oss",
       "multiline": true,
       "max": 600,
-      "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden."
+      "value": "Testfirma er et oppdiktet firma som brukes for å teste redigeringssiden. Oh yeah enig"
     },
     {
       "key": "telefon",
@@ -30,6 +30,11 @@
       "value": "000 00 000"
     }
   ],
-  "photos": [],
-  "updated": "2026-11-05T23:05:47.340Z"
+  "photos": [
+    {
+      "src": "bilder/20261106-001820-0.jpg",
+      "caption": "Bilde av Muggerud"
+    }
+  ],
+  "updated": "2026-11-05T23:18:20.619Z"
 }
